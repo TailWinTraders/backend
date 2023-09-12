@@ -1,0 +1,6 @@
+#any change to this repo will require 
+#the approval from DarioOlinuck
+
+#anychange inside de /Documents directory will 
+#require approval from anyone in the organizational
+#docs team
