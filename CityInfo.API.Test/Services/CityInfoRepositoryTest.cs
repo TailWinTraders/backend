@@ -57,9 +57,9 @@ namespace CityInfo.API.Test.Services
 
             var cityInfoRepository = new CityInfoRepository(dbContext.Result);
 
-            var cityNameAdded = "Test City 5";
+            var cityNameAdded = "Test City 4";
 
-            var cityToAdd = new City(cityNameAdded) { Description = "Test City 5" };
+            var cityToAdd = new City(cityNameAdded) { Description = "Test City 4" };
 
             await cityInfoRepository.AddCityAsync(cityToAdd);
 
@@ -68,7 +68,7 @@ namespace CityInfo.API.Test.Services
             var result = await cityInfoRepository.GetCitiesAsync();
 
             Assert.IsNotNull(result);
-            Assert.IsTrue(result.Any(x => x.Name == "Test City 6"));
+            Assert.IsTrue(result.Any(x => x.Name == cityNameAdded));
         }
 
     }
