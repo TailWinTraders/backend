@@ -1,4 +1,5 @@
 ﻿using CityInfo.API.DbContexts;
+using CityInfo.API.Entities;
 using CityInfo.API.Services;
 using Microsoft.EntityFrameworkCore;
 using Xunit;
@@ -46,6 +47,28 @@ namespace CityInfo.API.Test.Services
 
             Assert.IsNotNull(result);
             Assert.AreEqual(cityId, result.Id);
+        }
+
+        [Fact]
+        [TestMethod]
+        public async Task TestGetCityByIdAddCityAsync_Test()
+        {
+            var dbContext = GetDbContext();
+
+            var cityInfoRepository = new CityInfoRepository(dbContext.Result);
+
+            var cityNameAdded = "Test City 5";
+
+            var cityToAdd = new City(cityNameAdded) { Description = "Test City 5" };
+
+            await cityInfoRepository.AddCityAsync(cityToAdd);
+
+            await cityInfoRepository.SaveChangesAsync();
+
+            var result = await cityInfoRepository.GetCitiesAsync();
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Any(x => x.Name == "Test City 6"));
         }
 
     }

@@ -97,5 +97,10 @@ namespace CityInfo.API.Services
         {
             return _context.Cities.AnyAsync(c => c.Id == cityId && c.Name == cityName);
         }
+
+        public async Task AddCityAsync(City city)
+        {
+            await _context.Cities.AddAsync(city);
+        }
     }
 }
