@@ -1,6 +1,8 @@
 #any change to this repo will require 
-#the approval from DarioOlinuck
+#the approval from @DarioOlinuck
+*@DarioOlinuck
 
-#anychange inside de /Documents directory will 
+#anychange inside de `/Documents` directory will 
 #require approval from anyone in the organizational
 #docs team
+/Documents @TailWinTraders/docsteam
